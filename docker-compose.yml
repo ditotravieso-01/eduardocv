@@ -1,0 +1,13 @@
+services:
+  cv-traviesoworks:
+    image: nginx:alpine
+    container_name: ceduardov
+    restart: unless-stopped
+    volumes:
+      - ./site:/usr/share/nginx/html:ro
+    networks:
+      - proxy_network
+
+networks:
+  proxy_network:
+    external: true
