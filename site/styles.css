@@ -1,0 +1,721 @@
+/* =============================================
+   RESET
+   ============================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================================
+   PALETA
+   ============================================= */
+
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f4f8fc;
+    --dark: #0b2540;
+    --text: #1c1c1e;
+    --muted: #6b7c93;
+    --accent: #0082c9;
+    --accent-hover: #0068a1;
+    --border: #e1eaf2;
+    --card: #ffffff;
+}
+
+/* =============================================
+   BASE
+   El body queda transparente. Todo el fondo de
+   la página lo pinta un pseudo-elemento fijo
+   (body::before) que además lleva la animación
+   atada al scroll.
+   ============================================= */
+
+html {
+    background-color: var(--dark);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    background: transparent;
+}
+
+/* =============================================
+   FONDO VIVO (body::before)
+   Elemento fijo que cubre el viewport. Tiene los
+   halos azules y un color de fondo que cambia
+   según el progreso del scroll.
+   Los porcentajes de la animación corresponden al
+   scroll total: 0-8% marino (hero), 8-20% la
+   transición a blanco, 20-100% variaciones muy
+   sutiles para que nunca se sienta plano.
+   ============================================= */
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-color: #ffffff;
+    background-image:
+        radial-gradient(circle at 12% 8%,  rgba(0, 130, 201, 0.07), transparent 42%),
+        radial-gradient(circle at 88% 32%, rgba(0, 130, 201, 0.05), transparent 45%),
+        radial-gradient(circle at 40% 68%, rgba(0, 130, 201, 0.05), transparent 48%),
+        radial-gradient(circle at 15% 95%, rgba(0, 130, 201, 0.06), transparent 42%);
+
+    animation: pageBackground linear;
+    animation-timeline: scroll(root);
+    animation-fill-mode: both;
+}
+
+@keyframes pageBackground {
+    0%   { background-color: #0b2540; }
+    8%   { background-color: #0b2540; }
+    14%  { background-color: #dde9f3; }
+    20%  { background-color: #ffffff; }
+    40%  { background-color: #ffffff; }
+    60%  { background-color: #eef5fa; }
+    80%  { background-color: #ffffff; }
+    100% { background-color: #f4f8fc; }
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+main > section {
+    padding: 100px 0;
+}
+
+/* =============================================
+   NAV
+   ============================================= */
+
+header {
+    background: var(--dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__brand {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+}
+
+.nav__links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav__links a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav__links a:hover {
+    color: #ffffff;
+}
+
+/* =============================================
+   HERO
+   Sin fondo propio: el marino lo aporta el
+   body::before cuando el scroll está arriba.
+   Solo lleva dos halos azules extra para darle
+   más carácter que al resto de la página.
+   El @supports de abajo es el fallback para
+   navegadores sin animation-timeline.
+   ============================================= */
+
+#hero {
+    background-image:
+        radial-gradient(ellipse at 80% 20%, rgba(0, 130, 201, 0.20), transparent 55%),
+        radial-gradient(ellipse at 20% 80%, rgba(0, 130, 201, 0.12), transparent 50%);
+    color: #ffffff;
+    padding: 120px 0 160px;
+}
+
+@supports not (animation-timeline: scroll()) {
+    #hero {
+        background-color: var(--dark);
+    }
+}
+
+.hero__eyebrow {
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+.hero__title {
+    font-size: clamp(36px, 6vw, 60px);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    max-width: 850px;
+}
+
+.hero__deck {
+    font-size: 20px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 650px;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--accent);
+    padding-left: 24px;
+    font-weight: 400;
+}
+
+.hero__subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+    max-width: 640px;
+    margin-bottom: 40px;
+}
+
+/* =============================================
+   BOTONES
+   ============================================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    margin-right: 12px;
+}
+
+.btn--primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.btn--ghost {
+    background: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* =============================================
+   TIPOGRAFÍA BASE
+   ============================================= */
+
+h2 {
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+main > section > .container > p {
+    color: var(--muted);
+    font-size: 17px;
+    max-width: 720px;
+    margin-bottom: 40px;
+}
+
+/* =============================================
+   GRID Y CARDS
+   ============================================= */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid--wide {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px 28px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(11, 37, 64, 0.08);
+    border-color: var(--accent);
+}
+
+.card__header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.card__header h3 {
+    margin-bottom: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card__icon {
+    width: 22px;
+    height: 22px;
+    padding: 10px;
+    background: rgba(0, 130, 201, 0.08);
+    border-radius: 10px;
+    box-sizing: content-box;
+    flex-shrink: 0;
+}
+
+.card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+.card ul {
+    list-style: none;
+    margin: 16px 0 20px;
+}
+
+.card ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 14.5px;
+    line-height: 1.55;
+}
+
+.card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.card ul + p {
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* =============================================
+   RITMO ENTRE SECCIONES
+   Un tinte azul pálido en tres secciones alternas
+   marca el cambio de bloque. Es sutil para no
+   romper la continuidad del fondo animado.
+   ============================================= */
+
+#servicios,
+#experiencia,
+#stack {
+    background: rgba(230, 242, 252, 0.5);
+}
+
+/* =============================================
+   SOBRE MÍ
+   ============================================= */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-grid__photo img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+    filter: grayscale(15%);
+}
+
+.about-grid__text p {
+    max-width: 620px;
+}
+
+/* =============================================
+   EXPERIENCIA
+   ============================================= */
+
+#experiencia article {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    position: relative;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+#experiencia article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(11, 37, 64, 0.06);
+}
+
+#experiencia article::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    bottom: 28px;
+    left: -1px;
+    width: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+#experiencia article h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+#experiencia article p:first-of-type {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 12px;
+}
+
+#experiencia article p:last-child {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* =============================================
+   FORMACIÓN
+   ============================================= */
+
+.edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+}
+
+.edu-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.edu-card__issuer {
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.edu-card p:last-child {
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.certs-title {
+    font-size: 13px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.cert-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(11, 37, 64, 0.07);
+    border-color: var(--accent);
+}
+
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.cert-card__issuer {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.cert-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+/* =============================================
+   STACK
+   Tags en pill: fondo blanco, borde sutil y un
+   punto azul a la izquierda. Hover enciende el
+   borde, no el fondo.
+   ============================================= */
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 56px;
+}
+
+.stack-group h3 {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+}
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: #ffffff;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+    transition: all 0.2s ease;
+}
+
+.tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+.tag:hover {
+    border-color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0, 130, 201, 0.08);
+}
+
+/* =============================================
+   CONTACTO
+   Vuelve al marino. Cierre cromático deliberado.
+   ============================================= */
+
+#contacto {
+    background:
+        radial-gradient(ellipse at 30% 30%, rgba(0, 130, 201, 0.22), transparent 60%),
+        var(--dark);
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 0;
+}
+
+#contacto h2 {
+    color: #ffffff;
+    font-size: 42px;
+    margin-bottom: 16px;
+}
+
+#contacto p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 17px;
+    max-width: 560px;
+    margin: 0 auto 40px;
+}
+
+#contacto .btn {
+    margin: 0 6px;
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+footer {
+    background: #061a2e;
+    color: rgba(255, 255, 255, 0.5);
+    padding: 32px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 0;
+    max-width: none;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 768px) {
+    main > section {
+        padding: 70px 0;
+    }
+
+    .container {
+        padding: 0 20px;
+    }
+
+    #hero {
+        padding: 100px 0 120px;
+    }
+
+    .hero__title {
+        font-size: clamp(32px, 8vw, 42px);
+    }
+
+    .hero__deck {
+        font-size: 18px;
+        padding-left: 16px;
+    }
+
+    .nav__links {
+        gap: 16px;
+        font-size: 13px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .stack-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .certs-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    #contacto .btn {
+        display: block;
+        margin: 12px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav__brand {
+        font-size: 18px;
+    }
+
+    .nav__links {
+        display: none;
+    }
+}

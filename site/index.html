@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eduardo Travieso - Infraestructura, Redes, ERP</title>
+
+    <!-- Inter desde Google Fonts, pesos 400 a 800. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Nav sticky arriba. Logo a la izquierda, anclas a la derecha.
+         Todavía no hay menú móvil real (ver media query de 480px). -->
+    <header>
+        <nav class="nav">
+            <a href="#" class="nav__brand">TraviesoWorks</a>
+            <ul class="nav__links">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#stack">Stack</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO. El fondo oscuro sale de dos radial-gradients azules
+             sobre el azul marino. Nada de imágenes. -->
+        <section id="hero">
+            <div class="container">
+                <p class="hero__eyebrow">Eduardo Travieso · La Habana, Cuba</p>
+                <h1 class="hero__title">Infraestructura, redes y ERP para negocios que no pueden fallar.</h1>
+                <p class="hero__deck">Especialista en infraestructura crítica, automatización con Odoo y seguridad de redes para negocios que no se pueden detener.</p>
+                <p class="hero__subtitle">Construyo, mantengo y automatizo la tecnología de talleres y PYMES. Self-hosting, Odoo a medida, VPN, redes y soporte real.</p>
+                <a href="#servicios" class="btn btn--primary">Ver servicios</a>
+                <a href="#contacto" class="btn btn--ghost">Contacto</a>
+            </div>
+        </section>
+
+        <!-- Sobre mí: grid de foto + bio. La foto todavía no está
+             (falta img/foto.jpg), pero la estructura ya está lista. -->
+        <section id="sobre-mi">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-grid__photo">
+                        <img src="img/foto.jpg" alt="Eduardo Travieso">
+                    </div>
+                    <div class="about-grid__text">
+                        <h2>Sobre mí</h2>
+                        <p>Técnico Superior en Administración de Redes y Seguridad Informática (UCI). Llevo años construyendo y manteniendo infraestructura real: servidores, redes, virtualización, respaldos y acceso remoto seguro.</p>
+                        <p>Trabajo con software libre, hardware reutilizado y presupuesto real. Mi enfoque es simple: <strong>soluciones que funcionan incluso cuando no hay internet, no hay presupuesto, no hay margen de error</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios. 6 cards en grid de 3 columnas.
+             Los iconos son SVG de Feather, tintados de azul a mano. -->
+        <section id="servicios">
+            <div class="container">
+                <h2>Servicios</h2>
+                <p>Lo que hago para clientes y proyectos propios.</p>
+                <div class="grid">
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/box.svg" alt="" class="card__icon">
+                            <h3>Odoo personalizado</h3>
+                        </div>
+                        <p>Instalación, configuración y módulos personalizados. Local o en la nube. Del inventario al POS.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/code.svg" alt="" class="card__icon">
+                            <h3>Software a medida</h3>
+                        </div>
+                        <p>Calculadoras, POS, dashboards, automatizaciones. Python, Flask, Odoo, JavaScript.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/shield.svg" alt="" class="card__icon">
+                            <h3>VPN + Bloqueador de anuncios</h3>
+                        </div>
+                        <p>Ahorro de datos móviles con WireGuard, Headscale y bloqueo de anuncios a nivel de red. Pago en CUP.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/server.svg" alt="" class="card__icon">
+                            <h3>Creación y configuración de redes y servidores</h3>
+                        </div>
+                        <p>Proxmox, TrueNAS, Kerio Control, Active Directory, PKI interna, DNS, respaldos.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/key.svg" alt="" class="card__icon">
+                            <h3>Acceso remoto seguro</h3>
+                        </div>
+                        <p>Headscale/WireGuard para conectar sedes, técnicos y dispositivos sin exponer nada a internet.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card__header">
+                            <img src="img/icons/life-buoy.svg" alt="" class="card__icon">
+                            <h3>Soporte mensual</h3>
+                        </div>
+                        <p>Mantenimiento preventivo, monitoreo, respaldos y respuesta ante incidentes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proyectos. Cards apiladas (no grid) para que cada caso respire.
+             Pendiente: numerarlas 01-04 en la esquina superior derecha. -->
+        <section id="proyectos">
+            <div class="container">
+                <h2>Proyectos destacados</h2>
+                <p>Casos reales.</p>
+
+                <article class="card">
+                    <div class="card__header">
+                        <img src="img/icons/cloud.svg" alt="" class="card__icon">
+                        <h3>TraviesoWorks Cloud</h3>
+                    </div>
+                    <p>Infraestructura self-hosted completa sobre un VPS: VPN, DNS cifrado, ERP, documentación, archivos y oficina. Todo orquestado con Docker y expuesto con SSL.</p>
+                    <ul>
+                        <li>Headscale + WireGuard + AdGuard como servicio de VPN con bloqueo de anuncios.</li>
+                        <li>Odoo 19 + Nextcloud + OnlyOffice + Docmost en contenedores aislados.</li>
+                        <li>Nginx Proxy Manager con SSL automático (Let's Encrypt) para 8 subdominios.</li>
+                        <li>Políticas de red segmentadas y DNS Split para clientes.</li>
+                    </ul>
+                    <p>Tecnologías: Docker · Portainer · WireGuard · Headscale · AdGuard · NPM · Odoo</p>
+                </article>
+
+                <article class="card">
+                    <div class="card__header">
+                        <img src="img/icons/codesandbox.svg" alt="" class="card__icon">
+                        <h3>TraviesoPrint</h3>
+                    </div>
+                    <p>ERP web propio construido desde cero para un taller de impresión gráfica. Reemplaza progresivamente a Odoo como frontend de producción. Backend en Flask con SQLAlchemy, ~28 tablas y 12 módulos organizados por dominio. Inspirado en conceptos de Odoo (modelos, kanban, workflow) pero implementado a medida.</p>
+                    <ul>
+                        <li>12 módulos independientes por dominio: inventario, órdenes, etiquetas, carteles, workflow, empleados, nómina, calendario, notificaciones, admin.</li>
+                        <li>Cálculo de merma operativa por paño, reservas de stock y dashboard con KPIs personalizables.</li>
+                        <li>Autenticación LDAP contra Active Directory sobre LDAPS (TLS 1.2+), con PKI interna emitida con XCA.</li>
+                        <li>Despliegue en producción con systemd + nginx + gunicorn sobre Ubuntu 24.04 LTS, migraciones con Alembic.</li>
+                    </ul>
+                    <p>Tecnologías: Python · Flask · SQLAlchemy · Jinja2 · SQLite · PostgreSQL · LDAP · Nginx · Gunicorn · Chart.js</p>
+                </article>
+
+                <article class="card">
+                    <div class="card__header">
+                        <img src="img/icons/share-2.svg" alt="" class="card__icon">
+                        <h3>Infraestructura CairoStudio</h3>
+                    </div>
+                    <p>Rediseño completo de la infraestructura tecnológica de un taller de impresión gráfica. Diseño de red virtual segmentada, servidor de virtualización, almacenamiento centralizado y dominio propio.</p>
+                    <ul>
+                        <li>Servidor Proxmox con segmentación de red virtual: DMZ, LAN y WAN aisladas.</li>
+                        <li>TrueNAS como almacenamiento centralizado, reemplazando el FTP antiguo.</li>
+                        <li>Active Directory en Windows Server 2022 + PKI interna (XCA) + LDAPS end-to-end verificado.</li>
+                        <li>Kerio Control como firewall perimetral y Headscale/WireGuard como servicio de acceso remoto mensual.</li>
+                        <li>Aseguramiento de conectividad para los flujos de producción e impresión del taller.</li>
+                    </ul>
+                    <p>Tecnologías: Proxmox · TrueNAS · Windows Server · Active Directory · PKI · Kerio · Headscale · WireGuard · XCA · Certificados SSL</p>
+                </article>
+
+                <article class="card">
+                    <div class="card__header">
+                        <img src="img/icons/cpu.svg" alt="" class="card__icon">
+                        <h3>Rescate de hardware</h3>
+                    </div>
+                    <p>Recuperación y puesta en producción de equipos que se daban por perdidos. Hardware reutilizado, software libre.</p>
+                    <ul>
+                        <li>Chromebook Acer Plus 514 convertida a Ubuntu con firmware RW_LEGACY y audio resuelto.</li>
+                        <li>iMac Late 2012 actualizada a macOS Mojave y devuelta a producción.</li>
+                        <li>Múltiples laptops reparadas (baterías, pasta térmica, SO, SSDs).</li>
+                        <li>Cliente ligero con Linux Mint + zram sobre 4 GB de RAM.</li>
+                    </ul>
+                    <p>Tecnologías: Linux · Ubuntu · macOS · MrChromebox · zram · Hardware</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Experiencia. Cada artículo es una card con una barra
+             azul lateral que sale por ::before. -->
+        <section id="experiencia">
+            <div class="container">
+                <h2>Experiencia</h2>
+
+                <article>
+                    <h3>Responsable Técnico, Telecomunicaciones y Desarrollo</h3>
+                    <p><strong>Cairostudio</strong> · 2026-Actual</p>
+                    <p>Responsable de la infraestructura tecnológica completa del taller (servidores, redes, PKI, virtualización, acceso remoto) y del desarrollo del software interno de gestión. Programación ocasional sobre Odoo en producción.</p>
+                </article>
+
+                <article>
+                    <h3>Especialista en Redes y Comunicaciones</h3>
+                    <p><strong>Aerovaradero SA</strong> · 2025-2026</p>
+                    <p>Administración de redes y comunicaciones en entorno corporativo a nivel nacional.</p>
+                </article>
+
+                <article>
+                    <h3>Becario en Redes y Seguridad Informática</h3>
+                    <p><strong>ECASA</strong> · 2024-2025</p>
+                    <p>Primeras prácticas profesionales en administración de redes y seguridad informática.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Formación y certificaciones.
+             El título va en una card grande; las certificaciones
+             ahora son fichas en grid de 3 columnas, no una lista plana. -->
+        <section id="formacion">
+            <div class="container">
+                <h2>Formación</h2>
+
+                <article class="edu-card">
+                    <h3>Técnico Superior en Administración de Redes y Seguridad Informática</h3>
+                    <p class="edu-card__issuer">Universidad de las Ciencias Informáticas (UCI) · Graduado</p>
+                    <p>Formación oficial en administración de redes, seguridad informática y sistemas.</p>
+                </article>
+
+                <h3 class="certs-title">Certificaciones</h3>
+                <div class="certs-grid">
+                    <article class="cert-card">
+                        <p class="cert-card__issuer">Parallaxnet</p>
+                        <h4>Basic Cloud Computing</h4>
+                    </article>
+                    <article class="cert-card">
+                        <p class="cert-card__issuer">Segurmática</p>
+                        <h4>Administración de Servicios Telemáticos</h4>
+                    </article>
+                    <article class="cert-card">
+                        <p class="cert-card__issuer">Segurmática</p>
+                        <h4>Fundamentos de la Administración de Redes de Computadoras</h4>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack por categorías. Uso tags tipo pill en vez de
+             listas separadas por puntos. Más visual y se escanea mejor. -->
+        <section id="stack">
+            <div class="container">
+                <h2>Stack técnico</h2>
+                <p>Lo que uso a diario, sin adornos.</p>
+                <div class="stack-grid">
+
+                    <div class="stack-group">
+                        <h3>Sistemas</h3>
+                        <ul class="tags">
+                            <li class="tag">Linux</li>
+                            <li class="tag">Ubuntu</li>
+                            <li class="tag">Debian</li>
+                            <li class="tag">Fedora</li>
+                            <li class="tag">Windows 10/11</li>
+                            <li class="tag">Windows Server 2022</li>
+                            <li class="tag">macOS</li>
+                            <li class="tag">Chrome OS</li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group">
+                        <h3>Virtualización</h3>
+                        <ul class="tags">
+                            <li class="tag">Proxmox</li>
+                            <li class="tag">Docker</li>
+                            <li class="tag">Docker Compose</li>
+                            <li class="tag">Portainer</li>
+                            <li class="tag">VMware ESXi</li>
+                            <li class="tag">vCenter</li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group">
+                        <h3>Redes y seguridad</h3>
+                        <ul class="tags">
+                            <li class="tag">Active Directory</li>
+                            <li class="tag">LDAP</li>
+                            <li class="tag">Kerberos</li>
+                            <li class="tag">PKI (XCA)</li>
+                            <li class="tag">WireGuard</li>
+                            <li class="tag">Headscale</li>
+                            <li class="tag">Kerio Control</li>
+                            <li class="tag">DNS</li>
+                            <li class="tag">DHCP</li>
+                            <li class="tag">SMB</li>
+                            <li class="tag">QoS</li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group">
+                        <h3>Desarrollo</h3>
+                        <ul class="tags">
+                            <li class="tag">Python</li>
+                            <li class="tag">Flask</li>
+                            <li class="tag">Blueprints</li>
+                            <li class="tag">Jinja2</li>
+                            <li class="tag">SQLAlchemy</li>
+                            <li class="tag">JavaScript</li>
+                            <li class="tag">HTML</li>
+                            <li class="tag">CSS</li>
+                            <li class="tag">SCSS</li>
+                            <li class="tag">XML</li>
+                            <li class="tag">Git</li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group">
+                        <h3>ERP y datos</h3>
+                        <ul class="tags">
+                            <li class="tag">Odoo 18/19</li>
+                            <li class="tag">PostgreSQL</li>
+                            <li class="tag">MariaDB</li>
+                            <li class="tag">SQLite</li>
+                            <li class="tag">Alembic</li>
+                            <li class="tag">Chart.js</li>
+                            <li class="tag">WeasyPrint</li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-group">
+                        <h3>Otros</h3>
+                        <ul class="tags">
+                            <li class="tag">RasterLink</li>
+                            <li class="tag">Hot Folders</li>
+                            <li class="tag">Ollama</li>
+                            <li class="tag">Producción gráfica</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto. Fondo oscuro, dos botones: mail y WhatsApp. -->
+        <section id="contacto">
+            <div class="container">
+                <h2>Trabajemos juntos</h2>
+                <p>¿Necesitas infraestructura, Odoo, VPN o soporte técnico? Escríbeme y vemos qué se puede hacer.</p>
+                <a href="mailto:eduardo@traviesoworks.com" class="btn btn--primary">eduardo@traviesoworks.com</a>
+                <a href="https://wa.me/5363131336" class="btn btn--ghost">WhatsApp</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer. Solo el copyright, sin adornos. -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TraviesoWorks · Eduardo Travieso</p>
+        </div>
+    </footer>
+
+</body>
+</html>
