@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eduardo Travieso - Infraestructura, Redes, ERP</title>
+    <title>Eduardo Travieso — Infraestructura, Redes, Sistemas</title>
 
     <!-- Inter desde Google Fonts, pesos 400 a 800. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,15 +14,16 @@
 </head>
 <body>
 
-    <!-- Nav sticky arriba. Logo a la izquierda, anclas a la derecha.
-         Todavía no hay menú móvil real (ver media query de 480px). -->
+    <!-- Nav sticky. Como esto es el CV personal, la marca
+         es tu nombre, no TraviesoWorks (que es otro proyecto). -->
     <header>
         <nav class="nav">
-            <a href="#" class="nav__brand">TraviesoWorks</a>
+            <a href="#" class="nav__brand">Eduardo Travieso</a>
             <ul class="nav__links">
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#formacion">Formación</a></li>
                 <li><a href="#stack">Stack</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -31,38 +32,42 @@
 
     <main>
 
-        <!-- HERO. El fondo oscuro sale de dos radial-gradients azules
-             sobre el azul marino. Nada de imágenes. -->
+        <!-- HERO. Tono descriptivo, sin promesas al cliente.
+             Dice quién eres y qué dominas. El detalle de
+             para quién va, lo intuye cada uno. -->
         <section id="hero">
             <div class="container">
-                <p class="hero__eyebrow">Eduardo Travieso · La Habana, Cuba</p>
-                <h1 class="hero__title">Infraestructura, redes y ERP para talleres y PYMES.</h1>
-                <p class="hero__deck">Especialista en automatización, infraestructura y seguridad informática.</p>
-                <p class="hero__subtitle">Self-hosting, Odoo a medida, VPN, redes y soporte.</p>
+                <p class="hero__eyebrow">La Habana, Cuba</p>
+                <h1 class="hero__title">Infraestructura, redes y sistemas.</h1>
+                <p class="hero__deck">Especialista en infraestructura, redes y seguridad informática.</p>
+                <p class="hero__subtitle">Proxmox, VMware, TrueNAS, WireGuard, Headscale, LDAP, PKI, Nextcloud, Odoo.</p>
                 <a href="#servicios" class="btn btn--primary">Ver servicios</a>
                 <a href="#contacto" class="btn btn--ghost">Contacto</a>
             </div>
         </section>
 
-        <!-- Sobre mí: grid de foto + bio. La foto todavía no está
-             (falta img/foto.jpg), pero la estructura ya está lista. -->
+        <!-- Sobre mí. La foto va comentada porque el archivo
+             todavía no existe. Cuando tengas img/foto.jpg,
+             descomenta el bloque .about-grid__photo. -->
         <section id="sobre-mi">
             <div class="container">
                 <div class="about-grid">
+                    <!--
                     <div class="about-grid__photo">
                         <img src="img/foto.jpg" alt="Eduardo Travieso">
                     </div>
+                    -->
                     <div class="about-grid__text">
                         <h2>Sobre mí</h2>
-                        <p>Técnico Superior en Administración de Redes y Seguridad Informática (UCI). Llevo años construyendo y manteniendo infraestructura real: servidores, redes, virtualización, respaldos y acceso remoto seguro.</p>
-                        <p>Trabajo con software libre, hardware reutilizado y presupuesto real. Mi enfoque es simple: <strong>soluciones que funcionan incluso cuando no hay internet, no hay presupuesto, no hay margen de error</strong>.</p>
+                        <p>Técnico Superior en Administración de Redes y Seguridad Informática (UCI, 2023). Mi perfil es de sistemas, no de desarrollador: servidores, virtualización, redes, almacenamiento y acceso remoto seguro.</p>
+                        <p>Trabajo con software libre, hardware reutilizado y presupuesto real. He recuperado equipos que se daban por perdidos — Chromebooks, iMacs antiguas, laptops — y los he devuelto a producción.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Servicios. 6 cards en grid de 3 columnas.
-             Los iconos son SVG de Feather, tintados de azul a mano. -->
+        <!-- Servicios. 6 cards. Los iconos son SVG de Feather
+             tintados de azul a mano. -->
         <section id="servicios">
             <div class="container">
                 <h2>Servicios</h2>
@@ -92,7 +97,7 @@
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/server.svg" alt="" class="card__icon">
-                            <h3>Creación y configuración de redes y servidores</h3>
+                            <h3>Redes y servidores</h3>
                         </div>
                         <p>Proxmox, TrueNAS, Kerio Control, Active Directory, PKI interna, DNS, respaldos.</p>
                     </article>
@@ -114,8 +119,9 @@
             </div>
         </section>
 
-        <!-- Proyectos. Cards apiladas (no grid) para que cada caso respire.
-             Pendiente: numerarlas 01-04 en la esquina superior derecha. -->
+        <!-- Proyectos. Tres casos. El rescate de hardware
+             se movió a Sobre mí porque es más anécdota
+             que proyecto destacado. -->
         <section id="proyectos">
             <div class="container">
                 <h2>Proyectos destacados</h2>
@@ -166,26 +172,10 @@
                     </ul>
                     <p>Tecnologías: Proxmox · TrueNAS · Windows Server · Active Directory · PKI · Kerio · Headscale · WireGuard · XCA · Certificados SSL</p>
                 </article>
-
-                <article class="card">
-                    <div class="card__header">
-                        <img src="img/icons/cpu.svg" alt="" class="card__icon">
-                        <h3>Rescate de hardware</h3>
-                    </div>
-                    <p>Recuperación y puesta en producción de equipos que se daban por perdidos. Hardware reutilizado, software libre.</p>
-                    <ul>
-                        <li>Chromebook Acer Plus 514 convertida a Ubuntu con firmware RW_LEGACY y audio resuelto.</li>
-                        <li>iMac Late 2012 actualizada a macOS Mojave y devuelta a producción.</li>
-                        <li>Múltiples laptops reparadas (baterías, pasta térmica, SO, SSDs).</li>
-                        <li>Cliente ligero con Linux Mint + zram sobre 4 GB de RAM.</li>
-                    </ul>
-                    <p>Tecnologías: Linux · Ubuntu · macOS · MrChromebox · zram · Hardware</p>
-                </article>
             </div>
         </section>
 
-        <!-- Experiencia. Cada artículo es una card con una barra
-             azul lateral que sale por ::before. -->
+        <!-- Experiencia. -->
         <section id="experiencia">
             <div class="container">
                 <h2>Experiencia</h2>
@@ -210,16 +200,14 @@
             </div>
         </section>
 
-        <!-- Formación y certificaciones.
-             El título va en una card grande; las certificaciones
-             ahora son fichas en grid de 3 columnas, no una lista plana. -->
+        <!-- Formación. -->
         <section id="formacion">
             <div class="container">
                 <h2>Formación</h2>
 
                 <article class="edu-card">
                     <h3>Técnico Superior en Administración de Redes y Seguridad Informática</h3>
-                    <p class="edu-card__issuer">Universidad de las Ciencias Informáticas (UCI) · Graduado</p>
+                    <p class="edu-card__issuer">Universidad de las Ciencias Informáticas (UCI) · Graduado en 2023</p>
                     <p>Formación oficial en administración de redes, seguridad informática y sistemas.</p>
                 </article>
 
@@ -241,8 +229,18 @@
             </div>
         </section>
 
-        <!-- Stack por categorías. Uso tags tipo pill en vez de
-             listas separadas por puntos. Más visual y se escanea mejor. -->
+        <!-- Idiomas. -->
+        <section id="idiomas">
+            <div class="container">
+                <h2>Idiomas</h2>
+                <ul class="lang-list">
+                    <li><strong>Español</strong> — Nativo</li>
+                    <li><strong>Inglés</strong> — Técnico, lectura</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Stack. -->
         <section id="stack">
             <div class="container">
                 <h2>Stack técnico</h2>
@@ -336,7 +334,7 @@
             </div>
         </section>
 
-        <!-- Contacto. Fondo oscuro, dos botones: mail y WhatsApp. -->
+        <!-- Contacto. Fondo oscuro. Dos botones principales. -->
         <section id="contacto">
             <div class="container">
                 <h2>Trabajemos juntos</h2>
@@ -348,10 +346,10 @@
 
     </main>
 
-    <!-- Footer. Solo el copyright, sin adornos. -->
+    <!-- Footer con GitHub. -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 TraviesoWorks · Eduardo Travieso</p>
+            <p>&copy; 2026 Eduardo Travieso · <a href="https://github.com/ditotravieso-01" target="_blank" rel="noopener">github.com/ditotravieso-01</a></p>
         </div>
     </footer>
 

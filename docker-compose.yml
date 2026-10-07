@@ -1,7 +1,7 @@
 services:
   cv-traviesoworks:
     image: nginx:alpine
-    container_name: ceduardov
+    container_name: eduardocv
     restart: unless-stopped
     volumes:
       - ./site:/usr/share/nginx/html:ro

@@ -26,10 +26,10 @@
 
 /* =============================================
    BASE
-   El body queda transparente. Todo el fondo de
-   la página lo pinta un pseudo-elemento fijo
-   (body::before) que además lleva la animación
-   atada al scroll.
+   El fondo vivo lo pinta body::before con
+   animation-timeline: scroll. Para navegadores
+   sin soporte (Firefox sin flag), cae al fallback
+   del @supports más abajo.
    ============================================= */
 
 html {
@@ -44,17 +44,6 @@ body {
     -webkit-font-smoothing: antialiased;
     background: transparent;
 }
-
-/* =============================================
-   FONDO VIVO (body::before)
-   Elemento fijo que cubre el viewport. Tiene los
-   halos azules y un color de fondo que cambia
-   según el progreso del scroll.
-   Los porcentajes de la animación corresponden al
-   scroll total: 0-8% marino (hero), 8-20% la
-   transición a blanco, 20-100% variaciones muy
-   sutiles para que nunca se sienta plano.
-   ============================================= */
 
 body::before {
     content: '';
@@ -125,7 +114,7 @@ header {
 
 .nav__links {
     display: flex;
-    gap: 28px;
+    gap: 24px;
     list-style: none;
 }
 
@@ -147,8 +136,6 @@ header {
    body::before cuando el scroll está arriba.
    Solo lleva dos halos azules extra para darle
    más carácter que al resto de la página.
-   El @supports de abajo es el fallback para
-   navegadores sin animation-timeline.
    ============================================= */
 
 #hero {
@@ -370,9 +357,8 @@ main > section > .container > p {
 
 /* =============================================
    RITMO ENTRE SECCIONES
-   Un tinte azul pálido en tres secciones alternas
-   marca el cambio de bloque. Es sutil para no
-   romper la continuidad del fondo animado.
+   Tinte azul pálido en tres secciones alternas
+   para marcar el cambio de bloque.
    ============================================= */
 
 #servicios,
@@ -403,6 +389,10 @@ main > section > .container > p {
 
 .about-grid__text p {
     max-width: 620px;
+}
+
+.about-grid__text p + p {
+    margin-top: 16px;
 }
 
 /* =============================================
@@ -545,10 +535,32 @@ main > section > .container > p {
 }
 
 /* =============================================
+   IDIOMAS
+   Lista horizontal simple. Sin cards ni adornos.
+   ============================================= */
+
+.lang-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.lang-list li {
+    font-size: 16px;
+    color: var(--text);
+}
+
+.lang-list strong {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+/* =============================================
    STACK
    Tags en pill: fondo blanco, borde sutil y un
-   punto azul a la izquierda. Hover enciende el
-   borde, no el fondo.
+   punto azul a la izquierda.
    ============================================= */
 
 .stack-grid {
@@ -604,7 +616,6 @@ main > section > .container > p {
 
 /* =============================================
    CONTACTO
-   Vuelve al marino. Cierre cromático deliberado.
    ============================================= */
 
 #contacto {
@@ -648,6 +659,18 @@ footer {
 footer p {
     margin: 0;
     max-width: none;
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+footer a:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 /* =============================================
@@ -707,6 +730,11 @@ footer p {
     #contacto .btn {
         display: block;
         margin: 12px auto;
+    }
+
+    .lang-list {
+        flex-direction: column;
+        gap: 12px;
     }
 }
 
