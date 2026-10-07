@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduardo Travieso — Infraestructura, Redes, Sistemas</title>
+    <meta name="description" content="Eduardo Travieso — Especialista en infraestructura, redes y sistemas en La Habana, Cuba. Odoo, Proxmox, WireGuard, LDAP, PKI.">
 
     <!-- Inter desde Google Fonts, pesos 400 a 800. -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,6 +23,7 @@
             <ul class="nav__links">
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
                 <li><a href="#experiencia">Experiencia</a></li>
                 <li><a href="#formacion">Formación</a></li>
                 <li><a href="#stack">Stack</a></li>
@@ -33,8 +35,9 @@
     <main>
 
         <!-- HERO. Tono descriptivo, sin promesas al cliente.
-             Dice quién eres y qué dominas. El detalle de
-             para quién va, lo intuye cada uno. -->
+             Dice quién eres y qué dominas. El nombre ya está
+             en el nav, así que el eyebrow solo lleva la
+             ubicación. -->
         <section id="hero">
             <div class="container">
                 <p class="hero__eyebrow">La Habana, Cuba</p>
@@ -46,82 +49,65 @@
             </div>
         </section>
 
-        <!-- Sobre mí. La foto va comentada porque el archivo
-             todavía no existe. Cuando tengas img/foto.jpg,
-             descomenta el bloque .about-grid__photo. -->
-        <section id="sobre-mi">
-            <div class="container">
-                <div class="about-grid">
-                    <!--
-                    <div class="about-grid__photo">
-                        <img src="img/foto.jpg" alt="Eduardo Travieso">
-                    </div>
-                    -->
-                    <div class="about-grid__text">
-                        <h2>Sobre mí</h2>
-                        <p>Técnico Superior en Administración de Redes y Seguridad Informática (UCI, 2023). Mi perfil es de sistemas, no de desarrollador: servidores, virtualización, redes, almacenamiento y acceso remoto seguro.</p>
-                        <p>Trabajo con software libre, hardware reutilizado y presupuesto real. He recuperado equipos que se daban por perdidos — Chromebooks, iMacs antiguas, laptops — y los he devuelto a producción.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Servicios. 6 cards. Los iconos son SVG de Feather
-             tintados de azul a mano. -->
+        <!-- Servicios. Va arriba porque es lo primero que quiere
+             saber quien llega: qué puedo hacer por él. Cada card
+             dice beneficio, no tecnología. Al final, un CTA suave
+             para quien no sabe qué necesita. -->
         <section id="servicios">
             <div class="container">
                 <h2>Servicios</h2>
-                <p>Lo que hago para clientes y proyectos propios.</p>
+                <p>Trabajo con talleres, PYMES y proyectos propios. Esto es lo que hago a diario.</p>
                 <div class="grid">
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/box.svg" alt="" class="card__icon">
                             <h3>Odoo personalizado</h3>
                         </div>
-                        <p>Instalación, configuración y módulos personalizados. Local o en la nube. Del inventario al POS.</p>
+                        <p>Controla inventario, ventas y compras en un solo sistema. Sin hojas de cálculo ni pérdidas de stock.</p>
                     </article>
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/code.svg" alt="" class="card__icon">
                             <h3>Software a medida</h3>
                         </div>
-                        <p>Calculadoras, POS, dashboards, automatizaciones. Python, Flask, Odoo, JavaScript.</p>
+                        <p>Herramientas que se ajustan a cómo trabajas, no al revés. Calculadoras, POS, dashboards, automatizaciones.</p>
                     </article>
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/shield.svg" alt="" class="card__icon">
                             <h3>VPN + Bloqueador de anuncios</h3>
                         </div>
-                        <p>Ahorro de datos móviles con WireGuard, Headscale y bloqueo de anuncios a nivel de red. Pago en CUP.</p>
+                        <p>Navega sin anuncios y ahorra datos móviles desde cualquier dispositivo. Pago en CUP.</p>
                     </article>
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/server.svg" alt="" class="card__icon">
                             <h3>Redes y servidores</h3>
                         </div>
-                        <p>Proxmox, TrueNAS, Kerio Control, Active Directory, PKI interna, DNS, respaldos.</p>
+                        <p>Red estable, respaldos automáticos y servidores que no se caen. Proxmox, TrueNAS, Active Directory, DNS.</p>
                     </article>
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/key.svg" alt="" class="card__icon">
                             <h3>Acceso remoto seguro</h3>
                         </div>
-                        <p>Headscale/WireGuard para conectar sedes, técnicos y dispositivos sin exponer nada a internet.</p>
+                        <p>Conecta sedes, técnicos y dispositivos sin exponer nada a internet. WireGuard + Headscale.</p>
                     </article>
                     <article class="card">
                         <div class="card__header">
                             <img src="img/icons/life-buoy.svg" alt="" class="card__icon">
                             <h3>Soporte mensual</h3>
                         </div>
-                        <p>Mantenimiento preventivo, monitoreo, respaldos y respuesta ante incidentes.</p>
+                        <p>Mantenimiento preventivo, monitoreo, respaldos y respuesta ante incidentes. Sin sorpresas.</p>
                     </article>
                 </div>
+                <p class="section-cta">¿No sabes qué necesitas? <a href="#contacto">Escríbeme y lo vemos.</a></p>
             </div>
         </section>
 
-        <!-- Proyectos. Tres casos. El rescate de hardware
-             se movió a Sobre mí porque es más anécdota
-             que proyecto destacado. -->
+        <!-- Proyectos. Van justo debajo de servicios porque son la
+             prueba de que lo que digo arriba es real. Cada uno con
+             una línea de resultado concreta antes de las tecnologías. -->
         <section id="proyectos">
             <div class="container">
                 <h2>Proyectos destacados</h2>
@@ -139,6 +125,7 @@
                         <li>Nginx Proxy Manager con SSL automático (Let's Encrypt) para 8 subdominios.</li>
                         <li>Políticas de red segmentadas y DNS Split para clientes.</li>
                     </ul>
+                    <p class="result"><strong>Resultado:</strong> 8 servicios en producción corriendo sobre un único VPS, con SSL automático y sin intervención manual para renovaciones.</p>
                     <p>Tecnologías: Docker · Portainer · WireGuard · Headscale · AdGuard · NPM · Odoo</p>
                 </article>
 
@@ -154,13 +141,14 @@
                         <li>Autenticación LDAP contra Active Directory sobre LDAPS (TLS 1.2+), con PKI interna emitida con XCA.</li>
                         <li>Despliegue en producción con systemd + nginx + gunicorn sobre Ubuntu 24.04 LTS, migraciones con Alembic.</li>
                     </ul>
+                    <p class="result"><strong>Resultado:</strong> el taller dejó de depender de hojas de cálculo para inventario y producción. La merma por paño y la nómina de empleados ahora se calculan solas. Todo el equipo trabaja sobre el mismo sistema.</p>
                     <p>Tecnologías: Python · Flask · SQLAlchemy · Jinja2 · SQLite · PostgreSQL · LDAP · Nginx · Gunicorn · Chart.js</p>
                 </article>
 
                 <article class="card">
                     <div class="card__header">
                         <img src="img/icons/share-2.svg" alt="" class="card__icon">
-                        <h3>Infraestructura CairoStudio</h3>
+                        <h3>Infraestructura Cairostudio</h3>
                     </div>
                     <p>Rediseño completo de la infraestructura tecnológica de un taller de impresión gráfica. Diseño de red virtual segmentada, servidor de virtualización, almacenamiento centralizado y dominio propio.</p>
                     <ul>
@@ -170,8 +158,30 @@
                         <li>Kerio Control como firewall perimetral y Headscale/WireGuard como servicio de acceso remoto mensual.</li>
                         <li>Aseguramiento de conectividad para los flujos de producción e impresión del taller.</li>
                     </ul>
+                    <p class="result"><strong>Resultado:</strong> almacenamiento centralizado (NAS), dominio propio, correo internacional y acceso remoto permanente. Red segmentada en DMZ/LAN/WAN, con servicios críticos funcionando sin depender de internet.</p>
                     <p>Tecnologías: Proxmox · TrueNAS · Windows Server · Active Directory · PKI · Kerio · Headscale · WireGuard · XCA · Certificados SSL</p>
                 </article>
+            </div>
+        </section>
+
+        <!-- Sobre mí. Va después de proyectos, no antes. La idea
+             es que el visitante primero vea qué haces y qué has
+             hecho, y solo después se encuentre contigo. Sin foto
+             por ahora: el CSS maneja el caso "sin foto" solo. -->
+        <section id="sobre-mi">
+            <div class="container">
+                <div class="about-grid">
+                    <!--
+                    <div class="about-grid__photo">
+                        <img src="img/foto.jpg" alt="Eduardo Travieso">
+                    </div>
+                    -->
+                    <div class="about-grid__text">
+                        <h2>Sobre mí</h2>
+                        <p>Vengo del mundo de la infraestructura y las redes. Trabajo con software libre, hardware reutilizado y presupuesto real. He recuperado equipos que se daban por perdidos — Chromebooks, iMacs antiguas, laptops — y los he devuelto a producción.</p>
+                        <p>Técnico Superior en Administración de Redes y Seguridad Informática (UCI, 2023). Mi perfil es de sistemas: servidores, virtualización, redes, almacenamiento y acceso remoto seguro.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -334,7 +344,7 @@
             </div>
         </section>
 
-        <!-- Contacto. Fondo oscuro. Dos botones principales. -->
+        <!-- Contacto. -->
         <section id="contacto">
             <div class="container">
                 <h2>Trabajemos juntos</h2>
@@ -346,10 +356,11 @@
 
     </main>
 
-    <!-- Footer con GitHub. -->
+    <!-- Footer. Cuando tengas LinkedIn, añádelo al lado
+         del enlace de GitHub separado por otro ·. -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Eduardo Travieso · <a href="https://github.com/ditotravieso-01" target="_blank" rel="noopener">github.com/ditotravieso-01</a></p>
+            <p>&copy; 2026 Eduardo Travieso · <a href="https://github.com/ditotravieso-01" target="_blank" rel="noopener">GitHub</a></p>
         </div>
     </footer>
 

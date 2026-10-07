@@ -355,6 +355,44 @@ main > section > .container > p {
     font-weight: 500;
 }
 
+/* Línea de resultado dentro de las cards de proyecto.
+   Va antes de la línea de tecnologías y separa del
+   resto por un borde superior más suave. */
+.card .result {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+}
+
+.card .result strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* CTA suave al final del grid de servicios.
+   No es un botón, es una línea de texto con enlace.
+   No debe competir visualmente con las cards. */
+.section-cta {
+    margin-top: 32px;
+    font-size: 15px;
+    color: var(--muted);
+    text-align: center;
+}
+
+.section-cta a {
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    transition: color 0.2s;
+}
+
+.section-cta a:hover {
+    color: var(--accent-hover);
+}
 /* =============================================
    RITMO ENTRE SECCIONES
    Tinte azul pálido en tres secciones alternas
@@ -369,13 +407,26 @@ main > section > .container > p {
 
 /* =============================================
    SOBRE MÍ
+   Grid adaptable: una columna por defecto,
+   dos columnas si existe la foto. Así, mientras
+   no tengas img/foto.jpg, el texto se centra
+   cómodo en lugar de quedar pegado a la izquierda.
    ============================================= */
 
 .about-grid {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 1fr;
     gap: 60px;
     align-items: center;
+}
+
+.about-grid:has(.about-grid__photo) {
+    grid-template-columns: 320px 1fr;
+}
+
+.about-grid__text {
+    max-width: 680px;
+    margin: 0 auto;
 }
 
 .about-grid__photo img {
@@ -385,10 +436,6 @@ main > section > .container > p {
     object-fit: cover;
     border-radius: 16px;
     filter: grayscale(15%);
-}
-
-.about-grid__text p {
-    max-width: 620px;
 }
 
 .about-grid__text p + p {
@@ -721,6 +768,10 @@ footer a:hover {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .about-grid__text {
+        margin: 0;
     }
 
     .card {
