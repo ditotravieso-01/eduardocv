@@ -440,7 +440,7 @@ main > section > .container > p {
 }
 
 .about-grid__text {
-    max-width: 680px;
+    max-width: 100%;
     width: 100%;
 }
 
