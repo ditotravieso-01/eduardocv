@@ -407,10 +407,11 @@ main > section > .container > p {
 
 /* =============================================
    SOBRE MÍ
-   Grid adaptable: una columna por defecto,
-   dos columnas si existe la foto. Así, mientras
-   no tengas img/foto.jpg, el texto se centra
-   cómodo en lugar de quedar pegado a la izquierda.
+   Centrado real usando justify-items en el grid,
+   no margin: 0 auto (que en grid items no siempre
+   centra). Cuando no hay foto, una columna
+   centrada. Cuando hay foto, dos columnas con
+   los items alineados a la izquierda.
    ============================================= */
 
 .about-grid {
@@ -418,15 +419,17 @@ main > section > .container > p {
     grid-template-columns: 1fr;
     gap: 60px;
     align-items: center;
+    justify-items: center;
 }
 
 .about-grid:has(.about-grid__photo) {
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 900px 1fr;
+    justify-items: start;
 }
 
 .about-grid__text {
-    max-width: 680px;
-    margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
 }
 
 .about-grid__photo img {
