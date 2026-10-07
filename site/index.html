@@ -34,10 +34,7 @@
 
     <main>
 
-        <!-- HERO. Tono descriptivo, sin promesas al cliente.
-             Dice quién eres y qué dominas. El nombre ya está
-             en el nav, así que el eyebrow solo lleva la
-             ubicación. -->
+        <!-- HERO. -->
         <section id="hero">
             <div class="container">
                 <p class="hero__eyebrow">La Habana, Cuba</p>
@@ -49,14 +46,15 @@
             </div>
         </section>
 
-        <!-- Servicios. Va arriba porque es lo primero que quiere
-             saber quien llega: qué puedo hacer por él. Cada card
-             dice beneficio, no tecnología. Al final, un CTA suave
-             para quien no sabe qué necesita. -->
+        <!-- Servicios. El h2 y el p de intro van dentro de
+             .section-head para darles color blanco propio
+             sin afectar las cards. -->
         <section id="servicios">
             <div class="container">
-                <h2>Servicios</h2>
-                <p>Trabajo con talleres, PYMES y proyectos propios. Esto es lo que hago a diario.</p>
+                <div class="section-head">
+                    <h2>Servicios</h2>
+                    <p>Trabajo con talleres, PYMES y proyectos propios. Esto es lo que hago a diario.</p>
+                </div>
                 <div class="grid">
                     <article class="card">
                         <div class="card__header">
@@ -105,9 +103,7 @@
             </div>
         </section>
 
-        <!-- Proyectos. Van justo debajo de servicios porque son la
-             prueba de que lo que digo arriba es real. Cada uno con
-             una línea de resultado concreta antes de las tecnologías. -->
+        <!-- Proyectos. -->
         <section id="proyectos">
             <div class="container">
                 <h2>Proyectos destacados</h2>
@@ -164,10 +160,7 @@
             </div>
         </section>
 
-        <!-- Sobre mí. Va después de proyectos, no antes. La idea
-             es que el visitante primero vea qué haces y qué has
-             hecho, y solo después se encuentre contigo. Sin foto
-             por ahora: el CSS maneja el caso "sin foto" solo. -->
+        <!-- Sobre mí. -->
         <section id="sobre-mi">
             <div class="container">
                 <div class="about-grid">
@@ -244,8 +237,14 @@
             <div class="container">
                 <h2>Idiomas</h2>
                 <ul class="lang-list">
-                    <li><strong>Español</strong> — Nativo</li>
-                    <li><strong>Inglés</strong> — Técnico, lectura</li>
+                    <li>
+                        <span class="lang-list__name">Español</span>
+                        <span class="lang-list__level">Nativo</span>
+                    </li>
+                    <li>
+                        <span class="lang-list__name">Inglés</span>
+                        <span class="lang-list__level">Técnico, lectura</span>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -356,8 +355,7 @@
 
     </main>
 
-    <!-- Footer. Cuando tengas LinkedIn, añádelo al lado
-         del enlace de GitHub separado por otro ·. -->
+    <!-- Footer. -->
     <footer>
         <div class="container">
             <p>&copy; 2026 Eduardo Travieso · <a href="https://github.com/ditotravieso-01" target="_blank" rel="noopener">GitHub</a></p>

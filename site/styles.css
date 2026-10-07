@@ -17,30 +17,22 @@
     --bg-alt: #f4f8fc;
     --dark: #0b2540;
     --text: #1c1c1e;
-    --muted: #6b7c93;
+    --muted: #3d5060;
     --accent: #0082c9;
     --accent-hover: #0068a1;
-    --border: #e1eaf2;
+    --border: #d5e0ea;
     --card: #ffffff;
 }
 
 /* =============================================
    FONDO — reparto de capas entre html y body
-   Para que Firefox y Chrome rendericen igual,
-   separo responsabilidades:
-   - html: el degradado navy→blanco, estirado al
-     alto completo del documento (100% 100%).
-     html siempre mide exactamente el alto del
-     documento, así no hay interpretaciones raras.
-   - body: los halos azules, con attachment fixed
-     para que queden anclados al viewport y se
-     muevan con la ventana, no con el contenido.
-   Los halos van encima del degradado porque el
-   background del body pinta sobre el de html.
+   - html: degradado navy→blanco estirado al alto
+     completo del documento.
+   - body: halos azules con attachment fixed.
    ============================================= */
 
 html {
-    background-color: #ffffff;
+    background-color: #0b2540;
     background-image: linear-gradient(180deg,
         #0b2540 0%,
         #0b2540 8%,
@@ -130,9 +122,6 @@ header {
 
 /* =============================================
    HERO
-   Sin fondo propio: el marino lo aporta el
-   degradado del html. Solo lleva dos halos
-   azules extra para darle más carácter.
    ============================================= */
 
 #hero {
@@ -144,7 +133,7 @@ header {
 }
 
 .hero__eyebrow {
-    color: var(--accent);
+    color: #ffffff;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.12em;
@@ -153,6 +142,7 @@ header {
 }
 
 .hero__title {
+    color: #ffffff;
     font-size: clamp(36px, 6vw, 60px);
     font-weight: 600;
     line-height: 1.1;
@@ -162,9 +152,9 @@ header {
 }
 
 .hero__deck {
+    color: #ffffff;
     font-size: 20px;
     line-height: 1.5;
-    color: rgba(255, 255, 255, 0.85);
     max-width: 650px;
     margin-bottom: 24px;
     border-left: 3px solid var(--accent);
@@ -173,7 +163,7 @@ header {
 }
 
 .hero__subtitle {
-    color: rgba(255, 255, 255, 0.7);
+    color: #ffffff;
     font-size: 18px;
     max-width: 640px;
     margin-bottom: 40px;
@@ -290,6 +280,7 @@ main > section > .container > p {
     font-size: 18px;
     font-weight: 600;
     line-height: 1.3;
+    color: var(--text);
 }
 
 .card__icon {
@@ -307,6 +298,7 @@ main > section > .container > p {
     font-weight: 600;
     margin-bottom: 8px;
     letter-spacing: -0.01em;
+    color: var(--text);
 }
 
 .card p {
@@ -346,9 +338,7 @@ main > section > .container > p {
     font-weight: 500;
 }
 
-/* Línea de resultado dentro de las cards de proyecto.
-   Va antes de la línea de tecnologías y separa del
-   resto por un borde superior más suave. */
+/* Línea de resultado dentro de las cards de proyecto. */
 .card .result {
     margin-top: 16px;
     padding-top: 16px;
@@ -363,9 +353,7 @@ main > section > .container > p {
     font-weight: 600;
 }
 
-/* CTA suave al final del grid de servicios.
-   No es un botón, es una línea de texto con enlace.
-   No debe competir visualmente con las cards. */
+/* CTA suave al final del grid de servicios. */
 .section-cta {
     margin-top: 32px;
     font-size: 15px;
@@ -386,11 +374,56 @@ main > section > .container > p {
 }
 
 /* =============================================
+   SECCIÓN SERVICIOS
+   El h2 y el p de intro van en blanco, destacando
+   sobre el degradado. Las cards NO se tocan: fondo
+   blanco, texto oscuro. El CTA final en navy bold.
+   ============================================= */
+
+#servicios .section-head {
+    margin-bottom: 40px;
+}
+
+#servicios .section-head h2 {
+    color: #ffffff;
+}
+
+#servicios .section-head p {
+    color: #ffffff;
+    font-size: 17px;
+    max-width: 720px;
+}
+
+/* Blindaje: si alguna regla de cascada intentara
+   cambiar el color del texto dentro de las cards,
+   esto lo deja fijo en muted oscuro. */
+#servicios .card p {
+    color: var(--muted);
+}
+
+#servicios .card h3 {
+    color: var(--text);
+}
+
+/* CTA final: azul marino y negrita. */
+#servicios .section-cta {
+    color: var(--dark);
+    font-weight: 700;
+}
+
+#servicios .section-cta a {
+    color: var(--dark);
+    font-weight: 700;
+    border-bottom-color: var(--dark);
+}
+
+#servicios .section-cta a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* =============================================
    SOBRE MÍ
-   Centrado real usando justify-items en el grid,
-   no margin: 0 auto. Cuando no hay foto, una
-   columna centrada. Con foto, dos columnas con
-   los items alineados a la izquierda.
    ============================================= */
 
 .about-grid {
@@ -565,31 +598,67 @@ main > section > .container > p {
 
 /* =============================================
    IDIOMAS
-   Lista horizontal simple. Sin cards ni adornos.
+   Dos fichas en grid, mismo lenguaje visual que
+   las certificaciones: card con acento azul
+   arriba a la izquierda, label uppercase en
+   acento y valor en texto principal.
    ============================================= */
 
 .lang-list {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 640px;
 }
 
 .lang-list li {
-    font-size: 16px;
-    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 22px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.lang-list strong {
+.lang-list li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    height: 3px;
+    background: var(--accent);
+}
+
+.lang-list li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(11, 37, 64, 0.07);
+    border-color: var(--accent);
+}
+
+.lang-list__name {
+    display: block;
     color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.lang-list__level {
+    display: block;
+    color: var(--text);
+    font-size: 15px;
     font-weight: 600;
-    margin-right: 6px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
 }
 
 /* =============================================
    STACK
-   Tags en pill: fondo blanco, borde sutil y un
-   punto azul a la izquierda.
    ============================================= */
 
 .stack-grid {
@@ -779,4 +848,26 @@ footer a:hover {
     .nav__links {
         display: none;
     }
+}
+
+/* =============================================
+   BLANCO NUCLEAR
+   Fuerza el blanco puro en textos del hero y
+   en los enlaces del nav. El !important evita
+   que cualquier regla anterior lo sobrescriba.
+   ============================================= */
+
+.hero__eyebrow,
+.hero__deck,
+.hero__subtitle {
+    color: #ffffff !important;
+}
+
+.nav__links a {
+    color: #ffffff !important;
+}
+
+.nav__links a:hover {
+    color: #ffffff !important;
+    opacity: 0.75;
 }
