@@ -25,15 +25,34 @@
 }
 
 /* =============================================
-   BASE
-   El fondo vivo lo pinta body::before con
-   animation-timeline: scroll. Para navegadores
-   sin soporte (Firefox sin flag), cae al fallback
-   del @supports más abajo.
+   FONDO — reparto de capas entre html y body
+   Para que Firefox y Chrome rendericen igual,
+   separo responsabilidades:
+   - html: el degradado navy→blanco, estirado al
+     alto completo del documento (100% 100%).
+     html siempre mide exactamente el alto del
+     documento, así no hay interpretaciones raras.
+   - body: los halos azules, con attachment fixed
+     para que queden anclados al viewport y se
+     muevan con la ventana, no con el contenido.
+   Los halos van encima del degradado porque el
+   background del body pinta sobre el de html.
    ============================================= */
 
 html {
-    background-color: var(--dark);
+    background-color: #ffffff;
+    background-image: linear-gradient(180deg,
+        #0b2540 0%,
+        #0b2540 8%,
+        #4a7ba0 12%,
+        #a3c2da 16%,
+        #dce8f1 20%,
+        #ffffff 25%,
+        #ffffff 100%
+    );
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
 }
 
 body {
@@ -42,36 +61,15 @@ body {
     line-height: 1.6;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
-    background: transparent;
-}
 
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background-color: #ffffff;
+    background-color: transparent;
     background-image:
         radial-gradient(circle at 12% 8%,  rgba(0, 130, 201, 0.07), transparent 42%),
         radial-gradient(circle at 88% 32%, rgba(0, 130, 201, 0.05), transparent 45%),
         radial-gradient(circle at 40% 68%, rgba(0, 130, 201, 0.05), transparent 48%),
         radial-gradient(circle at 15% 95%, rgba(0, 130, 201, 0.06), transparent 42%);
-
-    animation: pageBackground linear;
-    animation-timeline: scroll(root);
-    animation-fill-mode: both;
-}
-
-@keyframes pageBackground {
-    0%   { background-color: #0b2540; }
-    8%   { background-color: #0b2540; }
-    14%  { background-color: #dde9f3; }
-    20%  { background-color: #ffffff; }
-    40%  { background-color: #ffffff; }
-    60%  { background-color: #eef5fa; }
-    80%  { background-color: #ffffff; }
-    100% { background-color: #f4f8fc; }
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .container {
@@ -133,9 +131,8 @@ header {
 /* =============================================
    HERO
    Sin fondo propio: el marino lo aporta el
-   body::before cuando el scroll está arriba.
-   Solo lleva dos halos azules extra para darle
-   más carácter que al resto de la página.
+   degradado del html. Solo lleva dos halos
+   azules extra para darle más carácter.
    ============================================= */
 
 #hero {
@@ -144,12 +141,6 @@ header {
         radial-gradient(ellipse at 20% 80%, rgba(0, 130, 201, 0.12), transparent 50%);
     color: #ffffff;
     padding: 120px 0 160px;
-}
-
-@supports not (animation-timeline: scroll()) {
-    #hero {
-        background-color: var(--dark);
-    }
 }
 
 .hero__eyebrow {
@@ -393,24 +384,12 @@ main > section > .container > p {
 .section-cta a:hover {
     color: var(--accent-hover);
 }
-/* =============================================
-   RITMO ENTRE SECCIONES
-   Tinte azul pálido en tres secciones alternas
-   para marcar el cambio de bloque.
-   ============================================= */
-
-#servicios,
-#experiencia,
-#stack {
-    background: rgba(230, 242, 252, 0.5);
-}
 
 /* =============================================
    SOBRE MÍ
    Centrado real usando justify-items en el grid,
-   no margin: 0 auto (que en grid items no siempre
-   centra). Cuando no hay foto, una columna
-   centrada. Cuando hay foto, dos columnas con
+   no margin: 0 auto. Cuando no hay foto, una
+   columna centrada. Con foto, dos columnas con
    los items alineados a la izquierda.
    ============================================= */
 
@@ -423,12 +402,12 @@ main > section > .container > p {
 }
 
 .about-grid:has(.about-grid__photo) {
-    grid-template-columns: 900px 1fr;
+    grid-template-columns: 320px 1fr;
     justify-items: start;
 }
 
 .about-grid__text {
-    max-width: 100%;
+    max-width: 680px;
     width: 100%;
 }
 
